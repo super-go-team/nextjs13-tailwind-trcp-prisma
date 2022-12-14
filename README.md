@@ -90,7 +90,7 @@ Of course you can check out the [docs](https://trpc.io/docs/router#initialize-tr
 
 #### Connecting tRPC to NextJs Api Routes
 
-We define routers inside a `routers` folder now. The code for that as far as this project is concerned didn't change at all however it's the location of the code that changed. I tried to adhere to the new recommended file and folder structure as much as possible so you would find the router definition in [here](blob/main/src/server/trpc.ts).
+We define routers inside a `routers` folder now. The code for that as far as this project is concerned didn't change at all however it's the location of the code that changed. I tried to adhere to the new recommended file and folder structure as much as possible so you would find the router definition in [here](/src/server/trpc.ts).
 
 For more info, knock yourself out in the official docs [here](https://trpc.io/docs/nextjs#3-create-a-trpc-router)
 
@@ -98,7 +98,7 @@ For more info, knock yourself out in the official docs [here](https://trpc.io/do
 
 This was one of the major changes for me. It is quite completely different from Francisco Mendes's blog TUT so this one was quite a hassle to change. (**_I never used trpc before 😅_**). The new way is using a new function called `createTRPCNext` which is imported from `@trpc/next`.
 
-Again adhering to the new file and folder structure, you can find the code [here](blob/main/src/utils/trpc.ts). Basically, all this logic was removed from the `pages/_app.tsx` file and brought into the [utils/trpc.ts](blob/main/src/utils/trpc.ts) file leaving the [pages/\_app.tsx](blob/main/src/pages/_app.tsx) file a lot leaner as it should be.
+Again adhering to the new file and folder structure, you can find the code [here](/src/utils/trpc.ts). Basically, all this logic was removed from the `pages/_app.tsx` file and brought into the [utils/trpc.ts](/src/utils/trpc.ts) file leaving the [pages/\_app.tsx](/src/pages/_app.tsx) file a lot leaner as it should be.
 
 [Official docs](https://trpc.io/docs/nextjs#4-create-trpc-hooks)
 
@@ -106,7 +106,7 @@ Again adhering to the new file and folder structure, you can find the code [here
 
 #### Consuming the APIs
 
-There wasn't a lot of changes on the frontend side. Making an API request just changed a tad bit. At the moment, procedures are now properties on the trpc object we import from the `utils` folder in the `src` folder of the project and the trpc hooks for consumption of the API's i.e **useQuery and the rest** are properties of these procedures. You can find these in the [pages/index.tsx](blob/main/src/pages/index.tsx) file.
+There wasn't a lot of changes on the frontend side. Making an API request just changed a tad bit. At the moment, procedures are now properties on the trpc object we import from the `utils` folder in the `src` folder of the project and the trpc hooks for consumption of the API's i.e **useQuery and the rest** are properties of these procedures. You can find these in the [pages/index.tsx](/src/pages/index.tsx) file.
 
 So that's about it folks 😄😄.
 
