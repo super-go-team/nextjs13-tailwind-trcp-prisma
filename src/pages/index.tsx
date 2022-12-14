@@ -16,21 +16,21 @@ import { GroceryList } from "@prisma/client";
 const Home: NextPage = () => {
   const [itemName, setItemName] = useState<string>("");
 
-  // V9 const { data: list, refetch } = trpc.useQuery(["findAll"]);
+  // (V9) const { data: list, refetch } = trpc.useQuery(["findAll"]);
   const { data: list, refetch } = trpc.findAll.useQuery();
-  // V9 const insertMutation = trpc.useMutation(["insertOne"], {
+  // (V9) const insertMutation = trpc.useMutation(["insertOne"], {
   //   onSuccess: () => refetch(),
   // });
   const insertMutation = trpc.insertOne.useMutation({
     onSuccess: () => refetch(),
   });
-  // V9 const deleteAllMutation = trpc.useMutation(["deleteAll"], {
+  // (V9) const deleteAllMutation = trpc.useMutation(["deleteAll"], {
   //   onSuccess: () => refetch(),
   // });
   const deleteAllMutation = trpc.deleteAll.useMutation({
     onSuccess: () => refetch(),
   });
-  // V9 const updateOneMutation = trpc.useMutation(["updateOne"], {
+  // (V9) const updateOneMutation = trpc.useMutation(["updateOne"], {
   //   onSuccess: () => refetch(),
   // });
   const updateOneMutation = trpc.updateOne.useMutation({
