@@ -84,7 +84,7 @@ The new version of tRPC(v10) has a new recommended file and folder structure whi
 
 With the new tRPC version, we would now need to always create an initialization of trpc exactly **once** per application.
 
-You can find the initialization of this project [here](blob/main/src/server/trpc.ts).
+You can find the initialization of this project [here](..blob/main/src/server/trpc.ts).
 
 Of course you can check out the [docs](https://trpc.io/docs/router#initialize-trpc) if you want more info.
 
