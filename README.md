@@ -59,22 +59,14 @@ The project was built with the T3 stack that consists of the following:
 
 ---
 
-- [T3 GROCERY LIST APP WITH tRPC v10](#t3-grocery-list-app-with-trpc-v10)
-  - [Table of Contents](#table-of-contents)
-    - [Screenshot](#screenshot)
-    - [Built With](#built-with)
-  - [Commands](#commands)
-  - [Changelog](#changelog)
-    - [Backend Changes](#backend-changes)
-      - [Installation](#installation)
-      - [Folder and FIle Structure](#folder-and-file-structure)
-      - [Initialization](#initialization)
-      - [Connecting tRPC to NextJs Api Routes](#connecting-trpc-to-nextjs-api-routes)
-      - [Creating typesafe trpc hooks in Next the new tRPC way](#creating-typesafe-trpc-hooks-in-next-the-new-trpc-way)
-    - [Frontend Changes](#frontend-changes)
-      - [Consuming the APIs](#consuming-the-apis)
-  - [Author](#author)
-  - [Acknowledgements](#acknowledgements)
+- [Backend Changes](#backend-changes)
+  - [Installation](#installation)
+  - [Folder and FIle Structure](#folder-and-file-structure)
+  - [Initialization](#initialization)
+  - [Connecting tRPC to NextJs Api Routes](#connecting-trpc-to-nextjs-api-routes)
+  - [Creating typesafe trpc hooks in Next the new tRPC way](#creating-typesafe-trpc-hooks-in-next-the-new-trpc-way)
+- [Frontend Changes](#frontend-changes)
+  - [Consuming the APIs](#consuming-the-apis)
 
 ### Backend Changes
 
