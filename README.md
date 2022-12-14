@@ -54,13 +54,14 @@ The project was built with the T3 stack that consists of the following:
 ---
 
 `
-git clone https://github.com/FranciscoMendes10866/next-tailwind-trpc-prisma.git
+git clone https://github.com/Multimarix/simple-next-trpc-grocery-list.git
 
 npm install
 
 npx prisma migrate dev --name init
 
 npm run dev
+
 `
 
 ## Changelog
