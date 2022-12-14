@@ -56,6 +56,8 @@ The project was built with the T3 stack that consists of the following:
 ```
 git clone https://github.com/Multimarix/simple-next-trpc-grocery-list.git
 
+cd simple-next-trpc-grocery-list
+
 npm install
 
 npx prisma migrate dev --name init
