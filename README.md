@@ -10,7 +10,7 @@ So it happened that as I was looking for a [tRPC](https://trpc.io/docs) based pr
 
 I ignored the differences and tried to replicate the code but, there were errors popping out everywhere. I was getting impatient. It was then I decided to take the time to study the tRPC v10 docs and differences between the previous version i.e v9. I used one of the [starter apps](https://github.com/trpc/examples-next-prisma-starter) they provided on the website and started matching and I was finally able to make a break through.
 
-It is the exact same project at **Francisco Mendes's** repo but with tRPC v10 implemented and some code comments too. Feel free to fork the repo or use it at a starting point if you're like me 😁.
+It is the exact same project at **Francisco Mendes's** repo but with tRPC v10 implemented and some code comments too. Feel free to fork the repo or use it as a starting point if you're like me 😁.
 
 ## Table of Contents
 
@@ -131,4 +131,4 @@ Thank you very much for your time... 🤞🏾🤞🏾
 
 ## Acknowledgements
 
-Prop to @FranciscoMendes10866 as, in any case, I still got to learn tRPC through his [blog TUT](https://dev.to/franciscomendes10866/build-a-full-stack-app-with-nextjs-tailwind-trpc-and-prisma-orm-4ail).
+Props to @FranciscoMendes10866 as, in any case, I got to learn tRPC through his [blog TUT](https://dev.to/franciscomendes10866/build-a-full-stack-app-with-nextjs-tailwind-trpc-and-prisma-orm-4ail).
