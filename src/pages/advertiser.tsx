@@ -17,6 +17,9 @@ const Home: NextPage = () => {
   const [itemName, setItemName] = useState<string>("");
   const { data: list, refetch } = api.advertiser.list.useQuery();
 
+  const { data: starwars } = api.advertiser.starwars.useQuery({id: 7});
+  console.log('starwars', starwars)
+
   const insertMutation = api.advertiser.put.useMutation({
     onSuccess: () => refetch(),
   });

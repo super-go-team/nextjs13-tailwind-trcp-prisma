@@ -6,8 +6,50 @@ const listHandler = publicProcedure.query(async ({ ctx }) => {
   return res;
 });
 
+async function request(url: string) {
+  const headers = {
+    "headers": {
+      "accept": "application/json",
+      "Access-Control-Allow-Origin": '*'
+    }
+  };
+  const result = await fetch(url, headers).then(res => res.json());
+
+  return result;
+}
+const toDate = (val:string) => new Date(val);
+const starwars =
+  publicProcedure
+  .input(
+    z.object({
+      id: z.number().int().gte(6).optional()
+    })
+  )
+  .output(
+    z.object({
+      cargo_capacity: z.string(),
+      consumables: z.string(),
+      cost_in_credits: z.string(),
+      created: z.string(),
+      crew: z.string(),
+      edited: z.string().transform(toDate),
+      length: z.string(),
+      manufacturer: z.string(),
+      max_atmosphering_speed: z.string(),
+      model: z.string(),
+      name: z.string(),
+      passengers: z.string(),
+      url: z.string(),
+      vehicle_class: z.string(),
+    })
+  )
+  .query(
+    async ({input}) =>  await request(`https://swapi.dev/api/vehicles/${input.id ?? 4}`)
+  );
+
 export const advertiserRouter = router({
     list: listHandler,
+    starwars,
     put: publicProcedure
       .input(
         z.object({
