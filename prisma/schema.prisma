@@ -11,7 +11,18 @@ datasource db {
 }
 
 model GroceryList {
-  id Int @id @default(autoincrement())
-  title String
+  id      Int      @id @default(autoincrement())
+  title   String
   checked Boolean? @default(false)
+}
+
+model Campaign {
+  id     Int      @id @default(autoincrement())
+  title  String
+  active Boolean? @default(false)
+}
+
+model Advertiser {
+  id   Int    @id @default(autoincrement())
+  name String
 }

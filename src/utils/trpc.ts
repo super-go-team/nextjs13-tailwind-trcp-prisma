@@ -15,12 +15,12 @@ function getBaseUrl() {
   return `http://127.0.0.1:${process.env.PORT ?? 3000}`;
 }
 
-export const trpc = createTRPCNext<AppRouter>({
+export const api = createTRPCNext<AppRouter>({
   config({ ctx }) {
     return {
       links: [
         httpBatchLink({
-          url: `${getBaseUrl()}/api/trpc`,
+          url: `${getBaseUrl()}/api`,
         }),
       ],
     };

@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import type { NextPage } from "next";
-import { GroceryList } from "@prisma/client";
+import { Advertiser, Campaign, GroceryList } from "@prisma/client";
 
 interface CardProps {
   children: React.ReactNode;
@@ -79,6 +79,47 @@ const ListItemComponent: NextPage<ListItemProps> = ({ item, onUpdate }) => {
 
 export const ListItem = memo(ListItemComponent);
 
+interface CampaignListItemProps {
+  item: Campaign;
+  onUpdate?: (item: Campaign) => void;
+}
+
+const CampaignListItemComponent: NextPage<CampaignListItemProps> = ({ item, onUpdate }) => {
+  return (
+    <div className="h-12 border-b flex items-center justify-start px-3">
+      <input
+        type="checkbox"
+        className="w-4 h-4 border-gray-300 rounded mr-4"
+        defaultChecked={item.active as boolean}
+        onChange={() => onUpdate?.(item)}
+      />
+      <h2 className="text-gray-600 tracking-wide text-sm">{item.title}</h2>
+    </div>
+  );
+};
+
+export const CampaignListItem = memo(CampaignListItemComponent);
+
+interface AdvertiserListItemProps {
+  item: Advertiser;
+  onUpdate?: (item: Advertiser) => void;
+}
+
+const AdvertiserListItemComponent: NextPage<AdvertiserListItemProps> = ({ item, onUpdate }) => {
+  return (
+    <div className="h-12 border-b flex items-center justify-start px-3">
+      <input
+        type="checkbox"
+        className="w-4 h-4 border-gray-300 rounded mr-4"
+        onChange={() => onUpdate?.(item)}
+      />
+      <h2 className="text-gray-600 tracking-wide text-sm">{item.name}</h2>
+    </div>
+  );
+};
+
+export const AdvertiserListItem = memo(AdvertiserListItemComponent);
+
 interface CardFormProps {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -96,7 +137,7 @@ export const CardForm: NextPage<CardFormProps> = ({
         <input
           className="w-full py-4 pl-3 pr-16 text-sm rounded-lg"
           type="text"
-          placeholder="Grocery item name..."
+          placeholder="Campaign name..."
           onChange={onChange}
           value={value}
         />

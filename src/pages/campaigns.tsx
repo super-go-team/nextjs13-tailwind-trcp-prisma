@@ -1,39 +1,31 @@
+import { api } from "@/utils/trpc";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useCallback, useState } from "react";
-import { api } from "@/utils/trpc";
 
+import { Campaign } from "@prisma/client";
 import {
+  CampaignListItem,
   Card,
   CardContent,
   CardForm,
   CardHeader,
-  List,
-  ListItem,
+  List
 } from "../components";
-import { GroceryList } from "@prisma/client";
 
 const Home: NextPage = () => {
   const [itemName, setItemName] = useState<string>("");
+  const { data: list, refetch } = api.campaign.list.useQuery();
 
-  // (V9) const { data: list, refetch } = trpc.useQuery(["findAll"]);
-  const { data: list, refetch } = api.grocery.findAll.useQuery();
-  // (V9) const insertMutation = trpc.useMutation(["insertOne"], {
-  //   onSuccess: () => refetch(),
-  // });
-  const insertMutation = api.grocery.insertOne.useMutation({
+  const insertMutation = api.campaign.put.useMutation({
     onSuccess: () => refetch(),
   });
-  // (V9) const deleteAllMutation = trpc.useMutation(["deleteAll"], {
-  //   onSuccess: () => refetch(),
-  // });
-  const deleteAllMutation = api.grocery.deleteAll.useMutation({
+
+  const deleteAllMutation = api.campaign.deleteAll.useMutation({
     onSuccess: () => refetch(),
   });
-  // (V9) const updateOneMutation = trpc.useMutation(["updateOne"], {
-  //   onSuccess: () => refetch(),
-  // });
-  const updateOneMutation = api.grocery.updateOne.useMutation({
+
+  const updateOneMutation = api.campaign.updateOne.useMutation({
     onSuccess: () => refetch(),
   });
 
@@ -56,10 +48,10 @@ const Home: NextPage = () => {
   }, [list, deleteAllMutation]);
 
   const updateOne = useCallback(
-    (item: GroceryList) => {
+    (item: Campaign) => {
       updateOneMutation.mutate({
         ...item,
-        checked: !item.checked,
+        active: !item.active,
       });
     },
     [updateOneMutation]
@@ -68,7 +60,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Grocery List</title>
+        <title>Campaign List</title>
         <meta name="description" content="Visit www.mosano.eu" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -77,13 +69,13 @@ const Home: NextPage = () => {
         <Card>
           <CardContent>
             <CardHeader
-              title="Grocery List"
+              title="Campaign List"
               listLength={list?.length ?? 0}
               clearAllFn={clearAll}
             />
             <List>
               {list?.map((item) => (
-                <ListItem key={item.id} item={item} onUpdate={updateOne} />
+                <CampaignListItem key={item.id} item={item} onUpdate={updateOne} />
               ))}
             </List>
           </CardContent>
