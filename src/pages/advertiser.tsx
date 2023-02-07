@@ -1,4 +1,4 @@
-import { api } from "@/utils/trpc";
+import { api } from "@/utils/server";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useCallback, useState } from "react";
