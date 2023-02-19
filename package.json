@@ -5,8 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "lint": "next lint",
     "start": "next start",
-    "lint": "next lint"
+    "prisma:studio": "npx prisma studio",
+    "prisma:migrate": "npx prisma migrate"
   },
   "dependencies": {
     "@fontsource/poppins": "^4.5.10",
